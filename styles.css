@@ -21,8 +21,10 @@ body {
     display: flex;
 }
 .row {
-    border: 1px solid black;
+   
 }
 .column{
     border: 1px solid black;
+    height: 20px;
+    width: 20px;
 }
