@@ -9,6 +9,20 @@
     padding: 0%;
 }
 
+body {
+    display: flex;
+    height: 100px;
+    width: 100px;
+}
 .grid-container {
-    border: 2px solid black;
+    height: 50px;
+    width: 50px;
+    padding: 40px;
+    display: flex;
+}
+.row {
+    border: 1px solid black;
+}
+.column{
+    border: 1px solid black;
 }
