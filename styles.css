@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0px;
+    padding: 0%;
+}
+
+.grid-container {
+    border: 2px solid black;
+}
