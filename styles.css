@@ -9,22 +9,21 @@
     padding: 0%;
 }
 
-body {
-    display: flex;
-    height: 100px;
-    width: 100px;
-}
-.grid-container {
-    height: 50px;
-    width: 50px;
+h1 {
+    padding: 10px;
+    text-align: center;
     padding: 40px;
+}
+
+.grid-container {
     display: flex;
+    justify-content: center;
+    padding: 40px; 
 }
-.row {
-   
-}
+
 .column{
     border: 1px solid black;
     height: 20px;
     width: 20px;
+    display: flex;
 }
