@@ -1,4 +1,9 @@
 let gridSize = 16;
+const colorBtn = document.querySelector(".color-btn");
+const clearBtn = document.querySelector(".clear-btn");
+const eraserBtn = document.querySelector(".eraser-btn");
+const blackBtn = document.querySelector(".black-btn");
+let color = "black";
 
 function createGrid(gridSize) {
   const gridContainer = createGridContainer()
@@ -10,15 +15,22 @@ function createGrid(gridSize) {
         let column = document.createElement("div");
         column.classList.add("column");
         row.appendChild(column);
-        column.addEventListener("mouseenter", function(e){
-          e.target.style.background = "black";
+        column.addEventListener("mouseenter", function(e) {
+          if (e.target.classList.contains("column")) {
+            if (color === "white") {
+              e.target.style.background = "white";
+            } else if (color === "black") {
+              e.target.style.background = "black";
+            } else {
+              e.target.style.background = randomColor();
+            }
+          }
         });
       }; 
       gridContainer.appendChild(row);
     };
 
 }
-createGrid(gridSize);
 
 
 function gridResize() {
@@ -30,12 +42,8 @@ function gridResize() {
       gridContainer.remove();
       gridSize = input;
       createGrid(gridSize);
-      
     }
-    
-    console.log(gridSize);
 } 
-console.log(gridSize);
 
 function createGridContainer() {
   const gridContainer = document.createElement("div");
@@ -43,5 +51,32 @@ function createGridContainer() {
    const container = document.querySelector(".container");
    container.appendChild(gridContainer);
    return gridContainer;
-   
 }
+
+clearBtn.addEventListener("click", function() {
+  const columns = document.querySelectorAll(".column");
+  columns.forEach((column) => {
+    column.style.background = "";
+  });
+});
+
+eraserBtn.addEventListener("click", function() {
+  color = "white"; 
+});
+
+colorBtn.addEventListener("click", function() {
+  color = randomColor();
+});
+
+function randomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+blackBtn.addEventListener("click", function() {
+  color = "black";
+});
+
+createGrid(gridSize);
